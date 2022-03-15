@@ -37,7 +37,7 @@ app.get('/api/persons', (request, response) => {
 })
 
 app.get('/api/persons/:id', (request, response) => {
-  const id = Number(request.params.id)
+  const id = Number(req.params.id)
   const entry = entries.find((e) => e.id === id)
 
   if (entry) {

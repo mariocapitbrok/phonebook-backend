@@ -26,24 +26,24 @@ let entries = [
 
 const date = new Date()
 
-app.get('/info', (request, response) => {
-  response.send(
+app.get('/info', (req, res) => {
+  res.send(
     `<p>Phonebook has info for ${entries.length} people<p>` + `<p>${date}</p>`
   )
 })
 
-app.get('/api/persons', (request, response) => {
-  response.json(entries)
+app.get('/api/persons', (req, res) => {
+  res.json(entries)
 })
 
-app.get('/api/persons/:id', (request, response) => {
-  const id = Number(request.params.id)
+app.get('/api/persons/:id', (req, res) => {
+  const id = Number(req.params.id)
   const entry = entries.find((e) => e.id === id)
 
   if (entry) {
-    response.json(entry)
+    res.json(entry)
   } else {
-    response.status(404).end()
+    res.status(404).end()
   }
 })
 
