@@ -71,19 +71,19 @@ app.post('/api/persons', (request, response) => {
 
   if (!body.name) {
     return response.status(400).json({
-      error: 'The name is missing',
+      error: 'name is missing',
     })
   }
 
   if (!body.number) {
     return response.status(400).json({
-      error: 'The number is missing',
+      error: 'number is missing',
     })
   }
 
   if (existingName(body.name)) {
     return response.status(400).json({
-      error: 'The name already exists in the phonebook',
+      error: 'name already exists in the phonebook',
     })
   }
 
