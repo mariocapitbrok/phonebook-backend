@@ -70,12 +70,12 @@ app.post('/api/persons', (request, response) => {
   }
 
   const entry = {
-    id: generateId(),
+    id: generateId,
     name: body.name,
     number: body.number,
   }
 
-  entries = entries.concat(entry)
+  // entries = entries.concat(entry)
 
   response.json(entry)
 })

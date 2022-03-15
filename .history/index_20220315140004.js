@@ -64,7 +64,7 @@ app.post('/api/persons', (request, response) => {
   const body = request.body
 
   if (!body.name) {
-    response.status(400).json({
+    return response.status(400).json({
       error: 'name is missing',
     })
   }

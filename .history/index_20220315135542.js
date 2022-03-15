@@ -29,8 +29,9 @@ let entries = [
 const date = new Date()
 
 const generateId = () => {
-  return Number((Math.random() * 1000000).toFixed(0))
+  return Math.random().toFixed(0) * 1000000
 }
+console.log(generateId())
 
 app.get('/info', (request, response) => {
   response.send(
@@ -64,18 +65,18 @@ app.post('/api/persons', (request, response) => {
   const body = request.body
 
   if (!body.name) {
-    response.status(400).json({
+    return response.status(400).json({
       error: 'name is missing',
     })
   }
 
   const entry = {
-    id: generateId(),
+    id: 'random number',
     name: body.name,
     number: body.number,
   }
 
-  entries = entries.concat(entry)
+  // entries = entries.concat(entry)
 
   response.json(entry)
 })

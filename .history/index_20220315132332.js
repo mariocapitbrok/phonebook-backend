@@ -28,10 +28,6 @@ let entries = [
 
 const date = new Date()
 
-const generateId = () => {
-  return Number((Math.random() * 1000000).toFixed(0))
-}
-
 app.get('/info', (request, response) => {
   response.send(
     `<p>Phonebook has info for ${entries.length} people<p>` + `<p>${date}</p>`
@@ -58,26 +54,6 @@ app.delete('/api/persons/:id', (request, response) => {
   entries = entries.filter((e) => e.id !== id)
 
   response.status(204).end()
-})
-
-app.post('/api/persons', (request, response) => {
-  const body = request.body
-
-  if (!body.name) {
-    response.status(400).json({
-      error: 'name is missing',
-    })
-  }
-
-  const entry = {
-    id: generateId(),
-    name: body.name,
-    number: body.number,
-  }
-
-  entries = entries.concat(entry)
-
-  response.json(entry)
 })
 
 const PORT = 3001

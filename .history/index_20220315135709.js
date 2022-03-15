@@ -29,7 +29,7 @@ let entries = [
 const date = new Date()
 
 const generateId = () => {
-  return Number((Math.random() * 1000000).toFixed(0))
+  return (Math.random() * 1000000).toFixed(0)
 }
 
 app.get('/info', (request, response) => {
@@ -64,7 +64,7 @@ app.post('/api/persons', (request, response) => {
   const body = request.body
 
   if (!body.name) {
-    response.status(400).json({
+    return response.status(400).json({
       error: 'name is missing',
     })
   }
