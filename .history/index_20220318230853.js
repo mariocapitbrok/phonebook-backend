@@ -27,7 +27,7 @@ let entries = [
 ]
 
 app.use(express.json())
-app.use(morgan('tiny'))
+//app.use(morgan('tiny'))
 
 const date = new Date()
 
